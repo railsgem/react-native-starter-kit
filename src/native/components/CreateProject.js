@@ -21,9 +21,8 @@ class CreateProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
+      projectName: '',
+      description: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -61,24 +60,14 @@ class CreateProject extends React.Component {
 
           <Form>
             <Item stackedLabel>
-              <Label>First Name</Label>
-              <Input onChangeText={v => this.handleChange('firstName', v)} />
+              <Label>Project Name</Label>
+              <Input onChangeText={v => this.handleChange('projectName', v)} />
             </Item>
 
             <Item stackedLabel>
-              <Label>Last Name</Label>
-              <Input onChangeText={v => this.handleChange('lastName', v)} />
+              <Label>Project Description</Label>
+              <Input onChangeText={v => this.handleChange('description', v)} />
             </Item>
-
-            <Item stackedLabel>
-              <Label>Email</Label>
-              <Input
-                autoCapitalize="none"
-                keyboardType="email-address"
-                onChangeText={v => this.handleChange('email', v)}
-              />
-            </Item>
-
 
             <Spacer size={20} />
 

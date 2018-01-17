@@ -6,10 +6,10 @@ import { Firebase, FirebaseRef } from '../lib/firebase';
   * Sign Up to Firebase
   */
 export function createProject(formData) {
+
   const {
-    email,
-    firstName,
-    lastName,
+    projectName,
+    description,
   } = formData;
 
   return dispatch => new Promise(async (resolve, reject) => {
@@ -18,18 +18,18 @@ export function createProject(formData) {
     if (!UID) return reject({ message: ErrorMessages.missingFirstName });
 
     // Validation checks
-    if (!firstName) return reject({ message: ErrorMessages.missingFirstName });
-    if (!lastName) return reject({ message: ErrorMessages.missingLastName });
-    if (!email) return reject({ message: ErrorMessages.missingEmail });
+    if (!projectName) return reject({ message: ErrorMessages.missingFirstName });
+    if (!description) return reject({ message: ErrorMessages.missingLastName });
 
     await statusMessage(dispatch, 'loading', true);
-
+    // const newPostKey = Firebase.ref(`projects/${UID}/${newPostKey}`);
+    const newPostKey = FirebaseRef.child(`projects/${UID}`).push().key;
     // Go to Firebase
-    return FirebaseRef.child(`projects/${UID}`)
+    return FirebaseRef.child(`projects/${UID}/${newPostKey}`)
       .set({
-        firstName,
-        lastName,
-        signedUp: Firebase.database.ServerValue.TIMESTAMP,
+        projectName,
+        description,
+        createdAt: Firebase.database.ServerValue.TIMESTAMP,
         lastLoggedIn: Firebase.database.ServerValue.TIMESTAMP,
       }).then(() => statusMessage(dispatch, 'loading', false).then(resolve));
   }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
