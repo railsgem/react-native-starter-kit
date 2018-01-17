@@ -26,6 +26,14 @@ const Profile = ({ member, logout }) => (
                 <Text>Update My Profile</Text>
               </Body>
             </ListItem>
+            <ListItem onPress={Actions.createProject} icon>
+              <Left>
+                <Icon name="ios-add" />
+              </Left>
+              <Body>
+                <Text>Create Project</Text>
+              </Body>
+            </ListItem>
             <ListItem onPress={logout} icon>
               <Left>
                 <Icon name="power" />
@@ -58,6 +66,14 @@ const Profile = ({ member, logout }) => (
               </Left>
               <Body>
                 <Text>Sign Up</Text>
+              </Body>
+            </ListItem>
+            <ListItem onPress={Actions.createProject} icon>
+              <Left>
+                <Icon name="ios-add" />
+              </Left>
+              <Body>
+                <Text>Create Project</Text>
               </Body>
             </ListItem>
             <ListItem onPress={Actions.forgotPassword} icon>

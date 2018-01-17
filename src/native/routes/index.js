@@ -12,6 +12,10 @@ import RecipeViewComponent from '../components/Recipe';
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/SignUp';
 
+import CreateProjectContainer from '../../containers/CreateProject';
+import CreateProjectComponent from '../components/CreateProject';
+
+
 import LoginContainer from '../../containers/Login';
 import LoginComponent from '../components/Login';
 
@@ -68,6 +72,14 @@ const Index = (
             {...DefaultProps.navbarProps}
             component={SignUpContainer}
             Layout={SignUpComponent}
+          />
+          <Scene
+            back
+            key="createProject"
+            title="CREATE PROJECT"
+            {...DefaultProps.navbarProps}
+            component={CreateProjectContainer}
+            Layout={CreateProjectComponent}
           />
           <Scene
             back
