@@ -9,6 +9,10 @@ import RecipesContainer from '../../containers/Recipes';
 import RecipesComponent from '../components/Recipes';
 import RecipeViewComponent from '../components/Recipe';
 
+// import ProjectsContainer from '../../containers/Projects';
+// import ProjectsComponent from '../components/Projects';
+
+
 import SignUpContainer from '../../containers/SignUp';
 import SignUpComponent from '../components/SignUp';
 
@@ -41,6 +45,15 @@ const Index = (
         {...DefaultProps.tabProps}
       >
         <Stack
+          key="project"
+          title={AppConfig.appName.toUpperCase()}
+          icon={() => <Icon name="ios-trophy-outline" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
+        >
+          <Scene key="project" component={RecipesContainer} Layout={RecipesComponent} />
+        </Stack>
+
+        <Stack
           key="home"
           title={AppConfig.appName.toUpperCase()}
           icon={() => <Icon name="planet" {...DefaultProps.icons} />}
@@ -49,14 +62,14 @@ const Index = (
           <Scene key="home" component={AboutComponent} />
         </Stack>
 
-        <Stack
+        {/* <Stack
           key="recipes"
           title="RECIPES"
           icon={() => <Icon name="book" {...DefaultProps.icons} />}
           {...DefaultProps.navbarProps}
         >
           <Scene key="recipes" component={RecipesContainer} Layout={RecipesComponent} />
-        </Stack>
+        </Stack> */}
 
         <Stack
           key="profile"

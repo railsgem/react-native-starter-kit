@@ -8,7 +8,7 @@ import Error from './Error';
 import Header from './Header';
 import Spacer from './Spacer';
 
-const RecipeListing = ({
+const ProjectListing = ({
   error,
   loading,
   recipes,
@@ -17,7 +17,6 @@ const RecipeListing = ({
   // Loading
   if (loading) return <Loading />;
 
-  console.log(recipes);
   // Error
   if (error) return <Error content={error} />;
 
@@ -29,7 +28,7 @@ const RecipeListing = ({
     <Container>
       <Content padder>
         <Header
-          title="Top Recipes"
+          title="Top Projects"
           content="This is here to show how you can read and display data from a data source (in our case, Firebase)."
         />
 
@@ -84,16 +83,16 @@ const RecipeListing = ({
   );
 };
 
-RecipeListing.propTypes = {
+ProjectListing.propTypes = {
   error: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   recipes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   reFetch: PropTypes.func,
 };
 
-RecipeListing.defaultProps = {
+ProjectListing.defaultProps = {
   error: null,
   reFetch: null,
 };
 
-export default RecipeListing;
+export default ProjectListing;
