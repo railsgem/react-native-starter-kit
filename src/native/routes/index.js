@@ -15,6 +15,8 @@ import SignUpComponent from '../components/SignUp';
 import CreateProjectContainer from '../../containers/CreateProject';
 import CreateProjectComponent from '../components/CreateProject';
 
+import ProjectsContainer from '../../containers/Projects';
+import ProjectsComponent from '../components/Projects';
 
 import LoginContainer from '../../containers/Login';
 import LoginComponent from '../components/Login';
@@ -47,6 +49,15 @@ const Index = (
           {...DefaultProps.navbarProps}
         >
           <Scene key="home" component={AboutComponent} />
+        </Stack>
+
+        <Stack
+          key="projects"
+          title="PROJECTS"
+          icon={() => <Icon name="book" {...DefaultProps.icons} />}
+          {...DefaultProps.navbarProps}
+        >
+          <Scene key="projects" component={ProjectsContainer} Layout={ProjectsComponent} />
         </Stack>
 
         <Stack

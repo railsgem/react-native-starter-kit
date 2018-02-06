@@ -9,7 +9,7 @@ import reducers from '../reducers';
 const config = {
   key: 'root',
   storage,
-  blacklist: ['status', 'recipes'],
+  blacklist: ['status', 'recipes', 'projects'],
 };
 
 const reducer = persistCombineReducers(config, reducers);
@@ -28,7 +28,7 @@ const configureStore = () => {
     null,
     () => { store.getState(); },
   );
-  // persistor.purge(); // Debug to clear persist
+  persistor.purge(); // Debug to clear persist
   return { persistor, store };
 };
 

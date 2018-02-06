@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { createProject } from '../actions/project';
+import { createProject } from '../actions/projects';
 
 const CreateProject = ({
   Layout,

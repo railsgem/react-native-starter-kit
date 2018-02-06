@@ -198,3 +198,31 @@ export function logout() {
       }).catch(reject);
   }).catch(async (err) => { await statusMessage(dispatch, 'error', err.message); throw err.message; });
 }
+
+
+/**
+  * Set an Error Message
+  */
+export function setError(message) {
+  return dispatch => new Promise(resolve => resolve(dispatch({
+    type: 'PROJECTS_ERROR',
+    data: message,
+  })));
+}
+
+/**
+  * Get Recipes
+  */
+export function getRecipes() {
+  if (Firebase === null) return () => new Promise(resolve => resolve());
+
+  return dispatch => new Promise(resolve => FirebaseRef.child('projects/8sVkuCqI2CNcR1Xhp37Kq2AifhV2')
+    .on('value', (snapshot) => {
+      const projects = snapshot.val() || {};
+
+      return resolve(dispatch({
+        type: 'PROJECTS_REPLACE',
+        data: projects,
+      }));
+    })).catch(e => console.log(e));
+}
