@@ -12,13 +12,19 @@ export default function projectReducer(state = initialState, action) {
     }
     case 'PROJECTS_REPLACE': {
       let projects = [];
+      const tmpProjects = [];
 
       // Pick out the props I need
       if (action.data && typeof action.data === 'object') {
-        console.log(action.data);
-        // projects = action.data;
-        projects = action.data.map(item => ({
-          // id: item.id,
+        let i = 0;
+        for (let key in action.data) {
+          tmpProjects[i] = action.data[key];
+          tmpProjects[i]['id'] = key;
+          i += 1;
+        };
+
+        projects = tmpProjects.map(item => ({
+          id: item.id,
           // title: item.title,
           // body: item.body,
           // category: item.category,
